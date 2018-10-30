@@ -27,9 +27,6 @@ class Tag
     @tags = []
     @content = []
   end
-  def self.all
-    ObjectSpace.each_object(self).to_a
-  end
   def find_nested_tags
     @content.each do |line|
       binding.pry
@@ -45,6 +42,13 @@ class Tag
         @inner_tag.content.push(line)
       end
     end
+  end
+end
+
+class Declaration
+  attr_accessor :data
+  def initialize(line)
+    @data = line
   end
 end
 
@@ -92,6 +96,7 @@ IO.foreach(filename) do |line|
   #инструкция обработки
   if line.match(/<\?[\s\S]*\?>/)
     #puts 'инструкция обработки'
+    @declaration = Declaration.new(line)
   end
 end
 
@@ -112,6 +117,9 @@ puts "----- TREE VIEW -----"
 end
 
 puts "----- TAG COUNTER: #{@counter_tag} -----"
+
+puts "----- DECLARATION -----"
+puts @declaration.data
 #puts @counter_tag
 @tag_array = []
 
