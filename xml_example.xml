@@ -1,0 +1,15 @@
+<!-- xml declaration -->
+<?xml version="1.0" ?>
+<!-- another tag -->
+<bookstore>
+  <!-- inner tag -->
+  <book>
+    Это книга про волшебника Гарри Поттера.
+  </book>
+  <book>
+    <price>10</price>
+    <![CDATA[<sender>John Smith</sender>]]>
+    kjbkjy
+  </book>
+  egeg5g4g5
+</bookstore>
